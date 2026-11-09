@@ -1,0 +1,19 @@
+# Môi trường ảo Python và bộ nhớ đệm
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Các file JSON dữ liệu khung xương thô dung lượng lớn (>45MB)
+# (Giữ lại các file kết quả nhẹ và CSDL Sheet nhạc đã nạp sẵn: sheet_music_database.json, evaluation_summary.json, timeline_report.json, keyboard_layout.json)
+data/expert_data.json
+data/user_data.json
+
+# Thư mục ảnh/PDF Sheet nhạc gốc dung lượng lớn (đã được trích xuất vào data/sheet_music_database.json)
+SheetNhac_Vong2_MienBac*
+# Các tệp báo cáo cá nhân & video demo ngoài thư mục gốc (chỉ lưu ở máy để nộp Form, không đưa lên GitHub)
+*.docx
+*.pdf
+PianoLearningAI_Report.md
+Demo_PianoLearningAI_B17DCCN043.mp4
+~$*.docx
