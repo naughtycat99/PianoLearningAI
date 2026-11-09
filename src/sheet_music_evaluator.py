@@ -741,15 +741,25 @@ def evaluate_video_with_sheet(
 
         if event_score < 85.0 or bio_score < 82.0 or semitone_diff > 0:
             status = "ERROR"
-            if semitone_diff > 0:
+            if mean_angle > 160.0:
                 advice = (
-                    f"Sai nốt so với Sheet nhạc! Sheet yêu cầu nốt {expected_note_code} "
+                    f"Lỗi bẹt ngón / sập đốt khi gõ nốt {played_note_code}! Góc khớp {finger_viet.lower()} "
+                    f"đang bị duỗi phẳng ({mean_angle}° > 160°). Cần khum tròn đốt ngón tay về vùng 120°–160°."
+                )
+            elif mean_angle < 120.0:
+                advice = (
+                    f"Lỗi quặp ngón tay khi gõ nốt {played_note_code}! Góc khớp {finger_viet.lower()} "
+                    f"bị gập quá sát ({mean_angle}° < 120°). Cần thả lỏng khớp ngón tay về vùng 120°–160°."
+                )
+            elif semitone_diff > 0:
+                advice = (
+                    f"Lệch cao độ so với Sheet nhạc! Sheet yêu cầu nốt {expected_note_code} "
                     f"(ngón {expected_finger_num} - {exp_finger_viet}), nhưng bạn đánh {played_note_code}."
                 )
             else:
                 advice = (
-                    f"Đánh đúng nốt {expected_note_code} trên Sheet nhưng góc khớp {finger_viet.lower()} "
-                    f"({mean_angle}°) chưa đạt chuẩn khum tròn (120°–160°)."
+                    f"Cổ tay hơi dao động khi gõ nốt {played_note_code} bằng {finger_viet.lower()} "
+                    f"(góc khớp {mean_angle}°). Cần giữ cổ tay tĩnh và hạ phím dứt khoát hơn."
                 )
         else:
             status = "OK"
@@ -814,6 +824,18 @@ def build_or_load_sheet_database(
         generate_default_sheet_from_video_data(
             user_data, keyboard_layout_path, sheets_dir
         )
+    else:
+        try:
+            with open(default_json_sheet, "r", encoding="utf-8") as f:
+                existing_s = json.load(f)
+            if not existing_s.get("notes"):
+                generate_default_sheet_from_video_data(
+                    user_data, keyboard_layout_path, sheets_dir
+                )
+        except Exception:
+            generate_default_sheet_from_video_data(
+                user_data, keyboard_layout_path, sheets_dir
+            )
 
     if os.path.exists(db_path):
         try:

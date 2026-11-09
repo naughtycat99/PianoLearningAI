@@ -1,36 +1,31 @@
 {
     "mode": "sheet",
     "sheet_file": "sheet_sample.png",
-    "final_score": 89.25,
-    "left_hand_average": 88.15,
-    "right_hand_average": 90.35,
+    "final_score": 89.61,
+    "left_hand_average": 88.77,
+    "right_hand_average": 90.45,
     "scores": {
         "Left": {
-            "Ngon cai": 89.63,
-            "Ngon tro": 87.7,
-            "Ngon giua": 86.75,
-            "Ngon ap ut": 88.01,
-            "Ngon ut": 88.64
+            "Ngon cai": 89.71,
+            "Ngon tro": 88.37,
+            "Ngon giua": 87.35,
+            "Ngon ap ut": 89.03,
+            "Ngon ut": 89.39
         },
         "Right": {
             "Ngon cai": 91.37,
             "Ngon tro": 89.02,
-            "Ngon giua": 89.4,
-            "Ngon ap ut": 90.09,
+            "Ngon giua": 89.48,
+            "Ngon ap ut": 90.52,
             "Ngon ut": 91.88
         }
     },
     "bad_fingers": [],
     "total_events": 37,
-    "error_events": 8,
+    "error_events": 3,
     "error_seconds": [
         0.4,
-        4.0,
-        20.4,
         41.9,
-        101.0,
-        110.6,
-        118.8,
         227.3
     ]
 }
