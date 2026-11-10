@@ -741,6 +741,17 @@ def evaluate_video_with_sheet(
 
         if event_score < 85.0 or bio_score < 82.0 or semitone_diff > 0:
             status = "ERROR"
+            # Khấu trừ điểm kỹ thuật khi phát hiện vi phạm tư thế sinh cơ học hoặc sai nốt (< 75đ)
+            if semitone_diff > 0:
+                event_score = min(event_score, 65.0)
+            elif mean_angle > 160.0 or mean_angle < 120.0:
+                event_score = min(event_score, 72.0)
+            else:
+                event_score = min(event_score, 74.0)
+
+            if active_side in finger_accum and active_fname in finger_accum[active_side] and finger_accum[active_side][active_fname]:
+                finger_accum[active_side][active_fname][-1] = event_score
+
             if mean_angle > 160.0:
                 advice = (
                     f"Lỗi bẹt ngón / sập đốt khi gõ nốt {played_note_code}! Góc khớp {finger_viet.lower()} "

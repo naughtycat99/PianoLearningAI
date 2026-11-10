@@ -250,8 +250,8 @@ class PianoAIGUI:
         legend = tk.Frame(outer, bg="#161b22")
         legend.pack(anchor="w", padx=8, pady=(4, 0))
         for color, label in [
-            ("#238636", "✔ Đạt (>=75đ)"),
-            ("#da3633", "✘ Lỗi (<75đ)"),
+            ("#238636", "✔ Đạt chuẩn (>=75đ)"),
+            ("#da3633", "✘ Lỗi tư thế / nốt (<75đ)"),
             ("#30363d", "— Không tay"),
         ]:
             dot = tk.Label(

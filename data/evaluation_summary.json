@@ -1,15 +1,15 @@
 {
     "mode": "sheet",
     "sheet_file": "sheet_sample.png",
-    "final_score": 89.61,
-    "left_hand_average": 88.77,
+    "final_score": 89.46,
+    "left_hand_average": 88.46,
     "right_hand_average": 90.45,
     "scores": {
         "Left": {
             "Ngon cai": 89.71,
-            "Ngon tro": 88.37,
+            "Ngon tro": 87.85,
             "Ngon giua": 87.35,
-            "Ngon ap ut": 89.03,
+            "Ngon ap ut": 87.99,
             "Ngon ut": 89.39
         },
         "Right": {
